@@ -1,8 +1,4 @@
-import {
-  composeValidators,
-  mustBeEmail,
-  required,
-} from "@utils/validation.util";
+import { composeValidators, mustBeEmail, required } from "@utils/validation.util";
 import Link from "next/link";
 import { Field, Form } from "react-final-form";
 
@@ -15,21 +11,11 @@ const LoginForm = () => {
         <form onSubmit={handleSubmit}>
           <div>
             <label>Email</label>
-            <Field
-              name="email"
-              className="form-control mt-2 "
-              component="input"
-              placeholder="Walterscoff@gmail.com"
-            />
+            <Field name="email" className="form-control mt-2 " component="input" placeholder="Email" />
           </div>
           <div className="my-6">
             <label>Password</label>
-            <Field
-              className="form-control  mt-2"
-              name="password"
-              component="input"
-              placeholder="Password"
-            />
+            <Field className="form-control  mt-2" name="password" component="input" placeholder="Password" />
           </div>
           <Link href="/reset-password/send-instruction">
             <a className="hover:underline text-orange-red">Forgot password?</a>
