@@ -13,11 +13,12 @@ const InvestClick = () => {
           </Fade>
           <Fade bottom>
             <p className={`mt-8 max-w-sm ${styles.body1}`}>
-              After choosing your plan, you'll be redirected to where you'll
-              make the payment of your plan to in BITCOIN. After paying to the
-              wallet, your payment will be confirmed in about 48 hours. After
-              confirmation, you'll be given access to your dashboard where you
-              can track your investment and withdraw your ROI.
+              After choosing your plan, you&apos;ll be redirected to where
+              you&apos;ll make the payment of your plan to in BITCOIN. After
+              paying to the wallet, your payment will be confirmed in about 48
+              hours. After confirmation, you&apos;ll be given access to your
+              dashboard where you can track your investment and withdraw your
+              ROI.
             </p>
           </Fade>
         </div>

@@ -32,7 +32,7 @@ const howTos = [
   },
   {
     num: 3,
-    text: "Submit the form and wait for 48 hours. You'll be contacted by your designated trader.",
+    text: "Submit the form and wait for 48 hours. You&apos;ll be contacted by your designated trader.",
   },
 ];
 
