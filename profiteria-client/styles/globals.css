@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./_btn.css";
+@import "./_typography.css";
+
+.a-center-j-btw {
+  @apply flex items-center justify-between;
+}
+
+.a-center {
+  @apply flex items-center;
+}
+
+.j-btw {
+  @apply flex justify-between;
+}
+
+.ash-gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(217, 217, 218, 0.5) 0%,
+    rgba(217, 217, 218, 0) 100%
+  );
+}
+
+.form-control {
+  @apply block  w-full focus:outline-none border border-ash-100;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: box-shadow, border-color 500ms ease-in-out;
+}
+
+.form-control:focus {
+  box-shadow: rgba(248, 102, 36, 0.25) 0 0 0 0.2rem;
+  border-color: #f86624;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
