@@ -1,0 +1,59 @@
+.hero {
+  &_title {
+    max-width: 579px;
+  }
+
+  &_subtitle {
+    max-width: 541px;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    height: 600px;
+  }
+}
+
+.whatYouGet_subtitle {
+  font-size: 18px !important;
+  max-width: 282px;
+}
+
+@media (max-width: 900px) {
+  .hero-subtitle {
+    max-width: 400px;
+  }
+}
+
+.btnLg {
+  max-width: 239px;
+}
+
+.plans {
+  box-shadow: 3px 4px 50px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder {
+  font-size: 12px;
+}
+
+.lead {
+  &_title {
+    max-width: 411px;
+  }
+
+  &_p {
+    font-size: 25px;
+  }
+}
+
+.adv_desc {
+  max-width: 336px;
+
+  box-shadow: 3px 4px 50px rgba(0, 0, 0, 0.1);
+}
+
+.goldImg {
+  width: 354px;
+  height: 207px;
+}

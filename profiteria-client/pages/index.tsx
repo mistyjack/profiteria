@@ -1,23 +1,25 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { Container } from "@components/ui";
+import { Layout } from "@components/common";
+import {
+  GetStartedInput,
+  Hero,
+  HireTrader,
+  HowItWorks,
+  LeadingBit,
+  WhatYouGet,
+} from "@components/home";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
-    <div>
-      <Head>
-        <title>Home - iCreatat</title>
-        <meta name="description" content="Home - iCreatat" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <Container>
-          <p className="text-blue-200">Hello world</p>
-        </Container>
-      </main>
-    </div>
+    <>
+      <Hero />
+      <WhatYouGet />
+      <LeadingBit />
+      <HireTrader />
+      <HowItWorks />
+      <GetStartedInput />
+    </>
   );
 };
 
+Home.Layout = Layout;
 export default Home;

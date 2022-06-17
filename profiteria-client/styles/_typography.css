@@ -1,0 +1,53 @@
+* {
+  font-family: "Libre Franklin", sans-serif;
+}
+h1 {
+  font-size: 44px !important;
+  line-height: 64px !important;
+  font-weight: 700 !important;
+}
+
+h2 {
+  font-size: 36px !important;
+  line-height: 42px !important;
+  font-weight: 600 !important;
+}
+
+h3 {
+  font-size: 26px !important;
+  line-height: 28px !important;
+  font-weight: 600 !important;
+}
+
+h4 {
+  font-size: 18px !important;
+  line-height: 30px !important;
+  font-weight: 500 !important;
+}
+
+.body1 {
+  font-size: 20px !important;
+  font-weight: 400 !important;
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 35px !important;
+    line-height: 40px !important;
+  }
+  h2 {
+    font-size: 28px !important;
+    line-height: 30px !important;
+  }
+}
+
+.signup {
+  &_title {
+    font-size: 30px;
+    line-height: 44px;
+  }
+  &_body {
+    font-size: 18px;
+    line-height: 44px;
+  }
+}

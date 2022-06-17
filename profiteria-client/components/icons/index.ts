@@ -1,0 +1,9 @@
+export { default as FullLogo } from "./FullLogo";
+export { default as DarkLogo } from "./DarkLogo";
+export { default as MenuIcon } from "./MenuIcon";
+export { default as CloseIcon } from "./CloseIcon";
+export { default as Facebook } from "./Facebook";
+export { default as Twitter } from "./Twitter";
+export { default as Instagram } from "./Instagram";
+export { default as FactIcon } from "./FactIcon";
+export { default as OrangeLogo } from "./OrangeLogoF";

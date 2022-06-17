@@ -1,0 +1,22 @@
+.logo {
+  min-width: 170px;
+  height: auto;
+}
+
+.navbar {
+  max-width: 807px;
+}
+
+.drawer {
+  box-shadow: rgb(0 0 0 / 20%) 0px 8px 10px -5px;
+  animation: slide-down 200ms ease-in;
+}
+
+@keyframes slide-down {
+  0% {
+    top: -450px;
+  }
+  100% {
+    top: 0;
+  }
+}
