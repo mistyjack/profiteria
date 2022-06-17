@@ -1,6 +1,5 @@
 import CreateProfile from "./CreateProfile";
 import ChooseInvPlan from "./ChooseInvPlan";
-import InvestClick from "./InvestClick";
 import KeepTrack from "./KeepTrack";
 
 const HowItWorks = () => {
@@ -11,7 +10,6 @@ const HowItWorks = () => {
       </h2>
       <CreateProfile />
       <ChooseInvPlan />
-
       <KeepTrack />
     </>
   );
