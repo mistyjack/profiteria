@@ -1,6 +1,7 @@
 import { Container } from "@components/ui";
 import styles from "./Home.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -8,15 +9,19 @@ const Hero = () => {
       <div className={`py-16 md:py-4 a-center-j-btw ${styles.hero}`}>
         <div className={`md:w-1/2`}>
           <h1 className={`mb-8 ${styles.hero_title}`}>
-            The most profitable Bitcoin Farming platform.
+            The most profitable{" "}
+            <span className={`${styles.bit_farm}`}>Bitcoin Farming</span>{" "}
+            platform.
           </h1>
           <p className={`body1 mb-12 ${styles.hero_subtitle}`}>
             Get started with <span className="text-orange-red">profit</span>
             eria to have access to the best strategies for great returns.
           </p>
-          <a className="btn btn-orange block text-center btn-xl w-full sm:inline">
-            Get Started
-          </a>
+          <Link href="/signup">
+            <a className="btn btn-orange block text-center btn-xl w-full sm:inline">
+              Get Started
+            </a>
+          </Link>
         </div>
         <div className="md:w-1/2 none md:block">
           <Image

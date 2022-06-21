@@ -2,10 +2,11 @@ import { Container } from "@components/ui";
 import styles from "./Home.module.css";
 import Image from "next/image";
 import Fade from "react-reveal/Fade";
+import Link from "next/link";
 
 const LeadingBit = () => {
   return (
-    <section className="py-12 ash-gradient">
+    <section className="pt-12 md:pb-12 ash-gradient">
       <Container>
         <div className="a-center-j-btw flex-row-reverse flex-wrap">
           <div className="w-full md:w-5/12 md:pl-8 mb-4 md:mb-0">
@@ -22,9 +23,11 @@ const LeadingBit = () => {
                   Increase your income with our unique farming plan.{" "}
                 </p>
               </Fade>
-              <button className={`btn btn-orange btn-lg ${styles.btnLg}`}>
-                Get Started
-              </button>
+              <Link href="/plans">
+                <a className={`btn btn-orange btn-lg ${styles.btnLg}`}>
+                  Invest Now
+                </a>
+              </Link>
             </div>
           </div>
           <div className="w-full hidden md:block max-w-sm md:max-w-3xl md:w-7/12">

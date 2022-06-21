@@ -37,6 +37,19 @@
   font-size: 12px;
 }
 
+.bit_farm {
+  background-image: linear-gradient(
+    90deg,
+    #f86624,
+    #3f87a6,
+    rgba(86, 139, 86, 0.9),
+    #b35689
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .lead {
   &_title {
     max-width: 411px;

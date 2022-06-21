@@ -5,8 +5,8 @@ import SignupForm from "./SignupForm";
 
 const Signup = () => {
   return (
-    <div className=" j-btw">
-      <Container className="mx-auto md:mx-0 px-4 py-14 w-full md:w-6/12">
+    <Container className="signup j-btw">
+      <div className="mx-auto md:mx-0 px-4 py-14 w-full md:w-6/12 ">
         <h3>
           Set up your <span className="text-orange-red">Profit</span>eria
           account
@@ -18,7 +18,7 @@ const Signup = () => {
           </Link>
         </p>
         <SignupForm />
-      </Container>
+      </div>
       <div className="bg-orange-red text-white w-5/12 px-10 hidden md:block">
         <div className="my-14">
           <WhiteLogo />
@@ -31,7 +31,7 @@ const Signup = () => {
           eria to have access to the best strategies for great returns.
         </p>
       </div>
-    </div>
+    </Container>
   );
 };
 

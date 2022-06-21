@@ -24,6 +24,7 @@ module.exports = {
       black: "#000",
       "black-500": "#262626",
       pink: "#F6E8DE",
+      red: "#FF0000",
     },
     fontSize: {
       48: "3rem",

@@ -16,7 +16,7 @@ const Container: FC<ContainerProps> = ({
   ...others
 }) => {
   let classList = `${className} mx-auto ${
-    !disableGutters ? "px-4 xl:px-20" : ""
+    !disableGutters ? "px-4 xl:px-6" : ""
   } `;
   classList += maxWidth === "xl" ? " max-w-screen-xl" : "";
   classList += maxWidth === "lg" ? " max-w-screen-lg" : "";
