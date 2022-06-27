@@ -1,3 +1,6 @@
+import { Loading } from "@components/ui";
+import { signup } from "@lib/api";
+import { SignupData } from "@types";
 import {
   composeValidators,
   mustBeEmail,
@@ -6,25 +9,36 @@ import {
   mustContainSpecialChar,
   required,
 } from "@utils/validation.util";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { Field, Form } from "react-final-form";
 
 const SignupForm = () => {
+  const router = useRouter();
   const [show, setShow] = useState(false);
-  const onSubmit = () => {};
+
+  const onSubmit = async (values: SignupData) => {
+    try {
+      await signup(values);
+      router.push("/signup/check-email");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <Form
       onSubmit={onSubmit}
-      render={({ handleSubmit, invalid }) => (
+      render={({ handleSubmit, invalid, submitting }) => (
         <form onSubmit={handleSubmit}>
-          <div className="j-btw space-x-6 mt-8">
+          <div className="md:flex md:space-x-6 mt-8">
             <Field
               validate={composeValidators(required, mustBeLettersOnly)}
-              name="firstname"
+              name="first_name"
             >
               {({ input, meta }) => (
-                <div className="w-full sm:w-1/2">
-                  <label className="label" htmlFor="firstname">
+                <div className="w-full md:w-1/2">
+                  <label className="label" htmlFor="first_name">
                     First name
                   </label>
                   <input
@@ -34,7 +48,7 @@ const SignupForm = () => {
                         : "form-control"
                     }  mt-2`}
                     {...input}
-                    id="firstname"
+                    id="first_name"
                     type="text"
                     placeholder="First name"
                   />
@@ -50,12 +64,12 @@ const SignupForm = () => {
 
             <Field
               validate={composeValidators(required, mustBeLettersOnly)}
-              name="lastname"
+              name="last_name"
             >
               {({ input, meta }) => (
-                <div className="w-full sm:w-1/2">
-                  <label className="label" htmlFor="lastname">
-                    First name
+                <div className="w-full md:w-1/2 mt-6 md:mt-0">
+                  <label className="label" htmlFor="last_name">
+                    Last name
                   </label>
                   <input
                     className={`${
@@ -64,7 +78,7 @@ const SignupForm = () => {
                         : "form-control"
                     }  mt-2`}
                     {...input}
-                    id="lastname"
+                    id="last_name"
                     type="text"
                     placeholder="Last name"
                   />
@@ -155,10 +169,12 @@ const SignupForm = () => {
           </Field>
 
           <button
-            disabled={invalid}
-            className="w-1/2 btn btn-orange mt-6 block text-center disabled:cursor-not-allowed disabled:bg-ash"
+            type="submit"
+            disabled={invalid || submitting}
+            className="w-1/2 btn btn-orange bg-orange-red mt-6 block text-center disabled:cursor-not-allowed disabled:bg-ash"
           >
-            Create Account
+            Create Account&nbsp;&nbsp;
+            <Loading loading={submitting} />
           </button>
         </form>
       )}

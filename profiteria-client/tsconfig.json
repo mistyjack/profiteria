@@ -22,7 +22,8 @@
       "@config/*": ["config/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
-      "@variables/*": ["variables/*"]
+      "@variables/*": ["variables/*"],
+      "@types": ["types"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
