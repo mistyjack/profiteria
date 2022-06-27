@@ -1,3 +1,6 @@
+import { Loading } from "@components/ui";
+import { login } from "@lib/api";
+import { LoginData } from "@types";
 import {
   composeValidators,
   mustBeEmail,
@@ -11,19 +14,28 @@ import { Field, Form } from "react-final-form";
 
 const LoginForm = () => {
   const [show, setShow] = useState(false);
-  const onSubmit = () => {};
+
+  const onSubmit = async (values: LoginData) => {
+    try {
+      const { data } = await login(values);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <Form
       onSubmit={onSubmit}
-      render={({ handleSubmit, invalid }) => (
+      render={({ handleSubmit, invalid, submitting }) => (
         <form onSubmit={handleSubmit}>
           <Field
             validate={composeValidators(required, mustBeEmail)}
-            name="email"
+            name="username"
           >
             {({ input, meta }) => (
               <div className="w-full mb-6">
-                <label className="label" htmlFor="email">
+                <label className="label" htmlFor="username">
                   Email
                 </label>
                 <input
@@ -33,7 +45,7 @@ const LoginForm = () => {
                       : "form-control"
                   }  mt-2`}
                   {...input}
-                  id="email"
+                  id="username"
                   type="text"
                   placeholder="Email"
                 />
@@ -94,10 +106,12 @@ const LoginForm = () => {
             <a className="hover:underline text-orange-red">Forgot password?</a>
           </Link>
           <button
-            disabled={invalid}
-            className="w-full mt-6 btn btn-orange disabled:bg-ash"
+            type="submit"
+            disabled={invalid || submitting}
+            className="w-full mt-6 btn btn-orange bg-orange-red disabled:cursor-not-allowed disabled:bg-ash"
           >
-            Login
+            Login&nbsp;&nbsp;
+            <Loading loading={submitting} />
           </button>
         </form>
       )}
