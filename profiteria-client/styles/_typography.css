@@ -1,6 +1,7 @@
 * {
   font-family: "Libre Franklin", sans-serif;
 }
+
 h1 {
   font-size: 44px !important;
   line-height: 64px !important;
@@ -41,25 +42,17 @@ h4 {
   }
 }
 
-.signup {
-  &_title {
-    font-size: 30px;
-    line-height: 44px;
-  }
-  &_body {
-    font-size: 18px;
-    line-height: 44px;
-  }
-}
-
-@media (min-width: 920px) {
-  .signup {
-    height: 100vh;
-    min-height: 600px;
-  }
-}
-
 .fs-14-16 {
   font-size: 14px;
   line-height: 16px;
+}
+
+.fs-30-44 {
+  font-size: 30px;
+  line-height: 44px;
+}
+
+.fs-18-30 {
+  font-size: 18px;
+  line-height: 30px;
 }
