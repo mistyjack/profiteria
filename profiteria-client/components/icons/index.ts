@@ -7,3 +7,5 @@ export { default as Twitter } from "./Twitter";
 export { default as Instagram } from "./Instagram";
 export { default as FactIcon } from "./FactIcon";
 export { default as OrangeLogo } from "./OrangeLogoF";
+export { default as MailIcon } from "./MailIcon";
+export { default as SuccessIcon } from "./SuccessIcon";

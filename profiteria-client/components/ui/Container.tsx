@@ -22,7 +22,7 @@ const Container: FC<ContainerProps> = ({
   classList += maxWidth === "lg" ? " max-w-screen-lg" : "";
   classList += maxWidth === "md" ? " max-w-screen-md" : "";
   classList += maxWidth === "sm" ? " max-w-screen-sm" : "";
-  console.log(others);
+
   return (
     <div className={classList} {...others}>
       {children}
