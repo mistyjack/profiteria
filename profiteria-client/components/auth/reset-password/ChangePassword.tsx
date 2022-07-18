@@ -1,4 +1,6 @@
 import { Container } from "@components/ui";
+import { changePassword } from "@lib/api";
+import { ChangePasswordData } from "@types";
 import {
   composeValidators,
   mustBeGreaterThan8,
@@ -6,12 +8,22 @@ import {
   required,
 } from "@utils/validation.util";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { Field, Form } from "react-final-form";
 
 const ChangePassword = () => {
+  const router = useRouter();
   const [show, setShow] = useState(false);
-  const onSubmit = () => {};
+
+  const onSubmit = async (values: ChangePasswordData) => {
+    try {
+      await changePassword(values);
+      router.push("/login");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <Container style={{ minHeight: 450 }} className="w-full a-center">
       <div className="w-full mx-auto max-w-sm">
