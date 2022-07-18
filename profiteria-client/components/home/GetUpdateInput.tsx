@@ -9,7 +9,7 @@ const Input = () => {
         <div className="flex w-full md:w-3/5 rounded-md border-4 bg-black ">
           <button className="p-2 btn-ash">Subscribe</button>
           <input
-            className={`px-8 w-full rounded-md focus:outline-none  focus-within:shadow-xl ${styles.placeholder}`}
+            className={`px-6 md:px-8 w-full rounded-md focus:outline-none  focus-within:shadow-xl ${styles.placeholder}`}
             type="text"
             placeholder="Enter your e-mail to subscribe"
           />

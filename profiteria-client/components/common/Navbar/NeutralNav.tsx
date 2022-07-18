@@ -2,15 +2,29 @@ import { Container } from "@components/ui";
 import { FullLogo, MenuIcon, CloseIcon } from "@components/icons";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
-import { Dispatch, FC, SetStateAction, useState } from "react";
+import { FC, useState } from "react";
 
 interface DrawerProps {
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  setIsOpen: (menuState: boolean) => void;
+  isOpen: boolean;
+  isMenuOpen: boolean;
+  isNOpen: boolean;
 }
 
-const Drawer: FC<DrawerProps> = ({ setIsOpen }) => {
+const Drawer: FC<DrawerProps> = ({
+  setIsOpen,
+  isOpen,
+  isMenuOpen,
+  isNOpen,
+}) => {
   return (
-    <aside className={`absolute w-full px-4 md:hidden bg-white z-50 ${styles.drawer}`}>
+    <aside
+      className={`absolute w-full px-4 md:hidden bg-white z-50 ${
+        styles.drawer
+      } ${!isMenuOpen && isOpen && isNOpen && styles.slide_up} ${
+        !isMenuOpen && isOpen && !isNOpen && styles.slide_down
+      }`}
+    >
       <div className="a-center-j-btw py-4">
         <div className={styles.logo}>
           <Link href="/">
@@ -19,36 +33,55 @@ const Drawer: FC<DrawerProps> = ({ setIsOpen }) => {
             </a>
           </Link>
         </div>
-        <div onClick={() => setIsOpen(false)} arial-label="Close mobile menu" className="md:hidden cursor-pointer">
+        <div
+          onClick={() => setIsOpen(false)}
+          arial-label="Close mobile menu"
+          className="md:hidden cursor-pointer "
+        >
           <CloseIcon />
         </div>
       </div>
-      <div className="">
+      <div>
         <div className="mb-20">
           <Link href="/">
-            <a className="py-4 text-center block" onClick={() => setIsOpen(false)}>
+            <a
+              className="py-4 text-center block"
+              onClick={() => setIsOpen(false)}
+            >
               Home
             </a>
           </Link>
           <Link href="/plans">
-            <a className="py-4 text-center block" onClick={() => setIsOpen(false)}>
+            <a
+              className="py-4 text-center block"
+              onClick={() => setIsOpen(false)}
+            >
               Plans
             </a>
           </Link>
           <Link href="/about">
-            <a className="py-4 text-center block" onClick={() => setIsOpen(false)}>
+            <a
+              className="py-4 text-center block"
+              onClick={() => setIsOpen(false)}
+            >
               About
             </a>
           </Link>
           <Link href="/contact">
-            <a className="py-4 text-center block" onClick={() => setIsOpen(false)}>
+            <a
+              className="py-4 text-center block"
+              onClick={() => setIsOpen(false)}
+            >
               Contact
             </a>
           </Link>
         </div>
         <div className="flex min-w-28 justify-center mb-16">
           <Link href="/login">
-            <a className="btn btn-ash-outlined mr-4" onClick={() => setIsOpen(false)}>
+            <a
+              className="btn btn-ash-outlined mr-4"
+              onClick={() => setIsOpen(false)}
+            >
               Login
             </a>
           </Link>
@@ -65,12 +98,35 @@ const Drawer: FC<DrawerProps> = ({ setIsOpen }) => {
 
 const NeutralNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNOpen, setIsNOpen] = useState(false);
+
+  const toggleMenu = (menuState: boolean) => {
+    if (menuState) {
+      setIsOpen(menuState);
+    } else {
+      setIsMenuOpen(menuState);
+    }
+    setTimeout(() => {
+      if (menuState) {
+        setIsMenuOpen(menuState);
+      } else {
+        setIsOpen(menuState);
+      }
+      setIsNOpen(menuState);
+    }, 200);
+  };
 
   return (
     <>
       {isOpen ? (
-        <div className={`relative`}>
-          <Drawer setIsOpen={setIsOpen} />
+        <div className={`relative `}>
+          <Drawer
+            setIsOpen={toggleMenu}
+            isOpen={isOpen}
+            isMenuOpen={isMenuOpen}
+            isNOpen={isNOpen}
+          />
         </div>
       ) : null}
       <Container>
@@ -78,7 +134,11 @@ const NeutralNav = () => {
           <div className={styles.logo}>
             <FullLogo />
           </div>
-          <div onClick={() => setIsOpen(true)} arial-label="Open mobile menu" className="md:hidden cursor-pointer">
+          <div
+            onClick={() => toggleMenu(true)}
+            aria-label="Open mobile menu"
+            className="md:hidden cursor-pointer"
+          >
             <MenuIcon />
           </div>
           <div className={`md:flex md:items-center hidden`}>
