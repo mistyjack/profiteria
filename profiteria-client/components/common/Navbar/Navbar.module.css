@@ -9,14 +9,30 @@
 
 .drawer {
   box-shadow: rgb(0 0 0 / 20%) 0px 8px 10px -5px;
-  animation: slide-down 200ms ease-in;
 }
 
-@keyframes slide-down {
+.slide_down {
+  animation: open 400ms ease-in;
+}
+
+@keyframes open {
   0% {
     top: -450px;
   }
   100% {
     top: 0;
+  }
+}
+
+.slide_up {
+  animation: close 400ms ease-in;
+}
+
+@keyframes close {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -450px;
   }
 }
